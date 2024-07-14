@@ -1,8 +1,12 @@
 package com.arya;
 
-public class Main {
-    public static void main(String[] args) {
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-        System.out.println("Hello world!");
+@SpringBootApplication
+public class Main {
+
+    public static void main(String[] args) {
+        SpringApplication.run(Main.class, args);
     }
 }

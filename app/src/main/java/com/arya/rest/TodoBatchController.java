@@ -1,6 +1,8 @@
 package com.arya.rest;
 
 import com.arya.aop.TrackTimeAop;
+import com.arya.dto.Task;
+import com.arya.service.TodoBatchService;
 import com.arya.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,56 +14,33 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.arya.dto.Task;
-
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
 @RestController
-public class TodoController {
+public class TodoBatchController {
 
     @Autowired
-    TodoService todoService;
+    TodoBatchService todoService;
 
-    @PostMapping("task")
+    @PostMapping("tasks")
     @TrackTimeAop
-    public ResponseEntity<Task> createTask(@RequestBody Task task) {
-        ResponseEntity<Task> responseEntity=new ResponseEntity(HttpStatus.NOT_FOUND);
-        Task savedTask = todoService.createTask(task);
-        if(Objects.nonNull(savedTask)){
-            responseEntity=new ResponseEntity<>(savedTask,HttpStatus.OK);
-        }
-        return responseEntity;
-    }
-
-    @GetMapping("task")
-    @TrackTimeAop
-    public ResponseEntity<List<Task>> getAll() {
+    public ResponseEntity<List<Task>> createTasks(@RequestBody List<Task> task) {
         ResponseEntity<List<Task>> responseEntity=new ResponseEntity(HttpStatus.NOT_FOUND);
-        List<Task> tasks = todoService.getAll();
+        List<Task> tasks = todoService.createTasks(task);
         if(Objects.nonNull(tasks) && !tasks.isEmpty()){
             responseEntity=new ResponseEntity<>(tasks,HttpStatus.OK);
         }
         return responseEntity;
     }
 
-    @GetMapping("task/{id}")
-    @TrackTimeAop
-    public ResponseEntity<Task> getById(@PathVariable UUID id) {
-        ResponseEntity<Task> responseEntity=new ResponseEntity(HttpStatus.NOT_FOUND);
-        Task task = todoService.findById(id);
-        if(Objects.nonNull(task)){
-            responseEntity=new ResponseEntity<>(task,HttpStatus.OK);
-        }
-        return responseEntity;
-    }
 
-    @DeleteMapping("task/{id}")
+    @DeleteMapping("tasks/{ids}")
     @TrackTimeAop
-    public ResponseEntity<?> deleteById(@PathVariable UUID id) {
+    public ResponseEntity<?> deleteByIds(@PathVariable List<UUID> ids) {
         ResponseEntity<?> responseEntity=new ResponseEntity(HttpStatus.BAD_REQUEST);
-        if(todoService.deleteById(id)){
+        if(todoService.deleteByIds(ids)){
             responseEntity=new ResponseEntity<>(HttpStatus.OK);
         }
         return responseEntity;

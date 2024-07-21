@@ -1,22 +1,21 @@
 package com.arya.rest;
 
-import com.arya.aop.TrackTimeAop;
-import com.arya.dto.Task;
-import com.arya.service.TodoBatchService;
-import com.arya.service.TodoService;
+import java.util.List;
+import java.util.Objects;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import com.arya.aop.TrackTimeAop;
+import com.arya.dto.Task;
+import com.arya.service.TodoBatchService;
 
 @RestController
 public class TodoBatchController {
@@ -27,10 +26,10 @@ public class TodoBatchController {
     @PostMapping("tasks")
     @TrackTimeAop
     public ResponseEntity<List<Task>> createTasks(@RequestBody List<Task> task) {
-        ResponseEntity<List<Task>> responseEntity=new ResponseEntity(HttpStatus.NOT_FOUND);
+        ResponseEntity<List<Task>> responseEntity = new ResponseEntity(HttpStatus.NOT_FOUND);
         List<Task> tasks = todoService.createTasks(task);
-        if(Objects.nonNull(tasks) && !tasks.isEmpty()){
-            responseEntity=new ResponseEntity<>(tasks,HttpStatus.OK);
+        if (Objects.nonNull(tasks) && !tasks.isEmpty()) {
+            responseEntity = new ResponseEntity<>(tasks, HttpStatus.OK);
         }
         return responseEntity;
     }
@@ -39,9 +38,9 @@ public class TodoBatchController {
     @DeleteMapping("tasks/{ids}")
     @TrackTimeAop
     public ResponseEntity<?> deleteByIds(@PathVariable List<UUID> ids) {
-        ResponseEntity<?> responseEntity=new ResponseEntity(HttpStatus.BAD_REQUEST);
-        if(todoService.deleteByIds(ids)){
-            responseEntity=new ResponseEntity<>(HttpStatus.OK);
+        ResponseEntity<?> responseEntity = new ResponseEntity(HttpStatus.BAD_REQUEST);
+        if (todoService.deleteByIds(ids)) {
+            responseEntity = new ResponseEntity<>(HttpStatus.OK);
         }
         return responseEntity;
     }

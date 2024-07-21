@@ -44,7 +44,7 @@ mvn flyway:info -f app/pom.xml -Dflyway.user=root -Dflyway.password=admin -Dflyw
 ```
 2. How to run migration 
 ```bash
-mvn clean flyway:migrate -f app/pom.xml -Dflyway.user=root -Dflyway.password=admin -Dflyway.schemas=db -Dflyway.url=jdbc:mysql://localhost:3306/db
+#mvn clean flyway:migrate -f app/pom.xml -Dflyway.user=root -Dflyway.password=admin -Dflyway.schemas=db -Dflyway.url=jdbc:mysql://localhost:3306/db
 #mvn clean flyway:repair -f app/pom.xml -Dflyway.user=root -Dflyway.password=admin -Dflyway.schemas=db -Dflyway.url=jdbc:mysql://localhost:3306/db
  
 ```

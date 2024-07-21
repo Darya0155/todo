@@ -5,13 +5,13 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.arya.dto.Task;
 import com.arya.entity.TaskDTO;
 import com.arya.repo.TaskRepo;
 import com.arya.service.MapperService;
 import com.arya.service.TodoService;
-import org.springframework.stereotype.Service;
 
 @Service
 public class TodoServiceImpl implements TodoService {
@@ -31,7 +31,7 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     public List<Task> getAll() {
-        return  mapperService.mapList(taskRepo.findAll());
+        return mapperService.mapList(taskRepo.findAll());
     }
 
     @Override

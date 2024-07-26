@@ -50,5 +50,10 @@ mvn flyway:info -f app/pom.xml -Dflyway.user=root -Dflyway.password=admin -Dflyw
 ```
 
 
+
+# sonarQube
+```bash
+mvn clean verify sonar:sonar -Dsonar.projectKey=todo -Dsonar.projectName='todo' -Dsonar.host.url=http://localhost:9000 -Dsonar.token=
+```
 ### What Are preConfigured in this Project
 1. 

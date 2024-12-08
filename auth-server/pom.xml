@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.arya</groupId>
-        <artifactId>TODO-app</artifactId>
+        <artifactId>todo</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../</relativePath>
+        <relativePath>..</relativePath>
     </parent>
 
     <artifactId>auth-server</artifactId>

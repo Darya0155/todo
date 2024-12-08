@@ -13,3 +13,5 @@ jobs:
           cache: maven
       - name: Build with Maven
         run: mvn -B package --file pom.xml
+      - name: Build the Docker image
+        run: docker build . --file app.Dockerfile --tag arya786/todohostinger:$(date +%s)

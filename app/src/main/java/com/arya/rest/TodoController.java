@@ -24,6 +24,11 @@ public class TodoController {
     @Autowired
     TodoService todoService;
 
+    @GetMapping
+    public String helloWorld() {
+        return "Hello World!";
+    }
+
     @PostMapping("task")
     @TrackTimeAop
     public ResponseEntity<Task> createTask(@RequestBody Task task) {

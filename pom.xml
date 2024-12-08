@@ -17,6 +17,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>app</module>
+        <module>auth-server</module>
+        <module>TestM</module>
     </modules>
 
 
@@ -196,6 +198,7 @@
             </plugins>
         </pluginManagement>
         <plugins>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>

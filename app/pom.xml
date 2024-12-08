@@ -7,6 +7,7 @@
         <groupId>com.arya</groupId>
         <artifactId>Todo-app</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath/>
     </parent>
 
     <artifactId>app</artifactId>
@@ -58,6 +59,10 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
             <plugin>
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>

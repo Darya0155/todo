@@ -1,0 +1,21 @@
+version : '3.2'
+
+services:
+  root-app:
+    image: arya786/todohostinger:0.0.1
+    build:
+      dockerfile: app-Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./rootLogs:/log:rw+
+    networks:
+      - arya-docker-network
+    environment:
+      SPRING_DATASOURCE_URL: 'jdbc:mysql://db:3306/db'
+      SPRING_DATASOURCE_USERNAME: 'root'
+      SPRING_DATASOURCE_PASSWORD: 'admin'
+
+networks:
+  arya-docker-network:
+    external: true

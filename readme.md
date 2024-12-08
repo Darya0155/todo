@@ -44,13 +44,20 @@ mvn flyway:info -f app/pom.xml -Dflyway.user=root -Dflyway.password=admin -Dflyw
 ```
 2. How to run migration 
 ```bash
-#mvn clean flyway:migrate -f app/pom.xml -Dflyway.user=root -Dflyway.password=admin -Dflyway.schemas=db -Dflyway.url=jdbc:mysql://localhost:3306/db
+mvn clean flyway:migrate -f app/pom.xml -Dflyway.user=root -Dflyway.password=admin -Dflyway.schemas=db -Dflyway.url=jdbc:mysql://localhost:3306/db
 #mvn clean flyway:repair -f app/pom.xml -Dflyway.user=root -Dflyway.password=admin -Dflyway.schemas=db -Dflyway.url=jdbc:mysql://localhost:3306/db
  
 ```
 
 
-
+# build docker image
+```bash
+docker-compose build
+```
+! docker login is required before pusting
+```bash
+docker-compose push
+```
 # sonarQube
 ```bash
 mvn clean verify sonar:sonar -Dsonar.projectKey=todo -Dsonar.projectName='todo' -Dsonar.host.url=http://localhost:9000 -Dsonar.token=

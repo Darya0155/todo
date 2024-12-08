@@ -141,22 +141,22 @@
                         </execution>
                     </executions>
                 </plugin>
-                <plugin>
-                    <groupId>net.revelc.code.formatter</groupId>
-                    <artifactId>formatter-maven-plugin</artifactId>
-                    <version>2.24.1</version>
-                    <configuration>
-                        <configFile>/Users/apple/IdeaProjects/todo/config/Default.xml</configFile>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <phase>compile</phase>
-                            <goals>
-                                <goal>format</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
+<!--                <plugin>-->
+<!--                    <groupId>net.revelc.code.formatter</groupId>-->
+<!--                    <artifactId>formatter-maven-plugin</artifactId>-->
+<!--                    <version>2.24.1</version>-->
+<!--                    <configuration>-->
+<!--                        <configFile>./config/Default.xml</configFile>-->
+<!--                    </configuration>-->
+<!--                    <executions>-->
+<!--                        <execution>-->
+<!--                            <phase>compile</phase>-->
+<!--                            <goals>-->
+<!--                                <goal>format</goal>-->
+<!--                            </goals>-->
+<!--                        </execution>-->
+<!--                    </executions>-->
+<!--                </plugin>-->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
